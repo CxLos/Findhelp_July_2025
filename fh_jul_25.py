@@ -1489,33 +1489,33 @@ zip_pie = px.pie(
 
 # # # ========================== DataFrame Table ========================== #
 
-# df_table = go.Figure(data=[go.Table(
-#     # columnwidth=[50, 50, 50],  # Adjust the width of the columns
-#     header=dict(
-#         values=list(df.columns),
-#         fill_color='paleturquoise',
-#         align='center',
-#         height=30,  # Adjust the height of the header cells
-#         # line=dict(color='black', width=1),  # Add border to header cells
-#         font=dict(size=12)  # Adjust font size
-#     ),
-#     cells=dict(
-#         values=[df[col] for col in df.columns],
-#         fill_color='lavender',
-#         align='left',
-#         height=25,  # Adjust the height of the cells
-#         # line=dict(color='black', width=1),  # Add border to cells
-#         font=dict(size=12)  # Adjust font size
-#     )
-# )])
+df_table = go.Figure(data=[go.Table(
+    # columnwidth=[50, 50, 50],  # Adjust the width of the columns
+    header=dict(
+        values=list(df.columns),
+        fill_color='paleturquoise',
+        align='center',
+        height=30,  # Adjust the height of the header cells
+        # line=dict(color='black', width=1),  # Add border to header cells
+        font=dict(size=12)  # Adjust font size
+    ),
+    cells=dict(
+        values=[df[col] for col in df.columns],
+        fill_color='lavender',
+        align='left',
+        height=25,  # Adjust the height of the cells
+        # line=dict(color='black', width=1),  # Add border to cells
+        font=dict(size=12)  # Adjust font size
+    )
+)])
 
-# df_table.update_layout(
-#     margin=dict(l=50, r=50, t=30, b=40),  # Remove margins
-#     height=400,
-#     # width=1500,  # Set a smaller width to make columns thinner
-#     paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
-#     plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot area
-# )
+df_table.update_layout(
+    margin=dict(l=50, r=50, t=30, b=40),  # Remove margins
+    height=400,
+    # width=1500,  # Set a smaller width to make columns thinner
+    paper_bgcolor='rgba(0,0,0,0)',  # Transparent background
+    plot_bgcolor='rgba(0,0,0,0)'  # Transparent plot area
+)
 
 # ============================== Dash Application ========================== #
 
@@ -1544,29 +1544,29 @@ app.layout = html.Div(
     ]),  
 
 # # Data Table
-# html.Div(
-#     className='row0',
-#     children=[
-#         html.Div(
-#             className='table',
-#             children=[
-#                 html.H1(
-#                     className='table-title',
-#                     children='Data Table'
-#                 )
-#             ]
-#         ),
-#         html.Div(
-#             className='table2', 
-#             children=[
-#                 dcc.Graph(
-#                     className='data',
-#                     figure=df_table
-#                 )
-#             ]
-#         )
-#     ]
-# ),
+html.Div(
+    className='row0',
+    children=[
+        html.Div(
+            className='table',
+            children=[
+                html.H1(
+                    className='table-title',
+                    children='Data Table'
+                )
+            ]
+        ),
+        html.Div(
+            className='table2', 
+            children=[
+                dcc.Graph(
+                    className='data',
+                    figure=df_table
+                )
+            ]
+        )
+    ]
+),
 
 # # ROW 1
 html.Div(
